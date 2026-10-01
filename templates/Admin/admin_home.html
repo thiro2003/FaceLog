@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <!-- Admin Welcome -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Hi {{ admin_name }} 👋</h2>
+
+      <div class="admin_buttons">
+        <a href="{{ url_for('student_register') }}" class="btn btn-success">
+            Add New Student
+        </a>
+        <a href="{{ url_for('remove_students') }}" class="btn btn-success">
+            Manage Students
+        </a>
+
+        <a href="{{ url_for('export_attendance') }}" class="btn btn-success">
+            Export to CSV
+        </a>
+      </div>
+    </div>
+
+    <!-- Attendance Heading -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Student Attendance</h4>
+        </div>
+
+        <div class="card-body bg-dark text-white">
+
+            {% if attendances %}
+
+            <div class="table-responsive">
+
+                <table class="table table-dark table-bordered table-hover align-middle">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Sr.no</th>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Date & Time</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for attendance in attendances %}
+
+                        <tr>
+                            <td>{{ loop.index }}</td>
+
+                            <td>
+                                {{ attendance.user_id }}
+                            </td>
+
+                            <td>
+                                {{ attendance.username }}
+                            </td>
+
+                            <td>
+                                {{ attendance.date_time }}
+                            </td>
+
+                            <td>
+
+                                {% if attendance.attendance %}
+                                    <span class="badge bg-success">
+                                        Present
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-danger">
+                                        Absent
+                                    </span>
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+                <div class="alert alert-info text-center">
+                    No attendance records found.
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

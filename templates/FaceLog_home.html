@@ -1,0 +1,62 @@
+{% extends "base.html" %} 
+{% block title %}Home | FaceLog{% endblock title %} 
+
+{% block content %}
+<!-- Use flexbox utilities to center vertically and horizontally in remaining space -->
+<div class="d-flex align-items-center justify-content-center flex-grow-1 w-100 my-auto py-4">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      
+      <!-- Centered Card Column -->
+      <div class="col-12 col-sm-10 col-md-8 col-lg-5">
+        <div class="card bg-dark text-white border-secondary border-opacity-25 shadow-lg rounded-4 overflow-hidden position-relative">
+          
+          <!-- Top Accent Line -->
+          <div class="bg-primary p-1"></div>
+
+          <div class="card-body p-4 p-sm-5 text-center">
+            
+            <!-- Header section (centered text and icon) -->
+            <div class="d-flex flex-column align-items-center justify-content-center mb-4 text-center">
+              <div class="bg-primary bg-opacity-25 text-primary border border-primary border-opacity-25 rounded-3 shadow-sm p-3 mb-3 d-flex align-items-center justify-content-center">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </div>
+              <h2 class="h4 fw-bold mb-1 text-light">Portal Access</h2>
+              <p class="text-secondary small mb-0">Select your account type to proceed</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-grid gap-3 mb-4">
+              <!-- Admin Login Button -->
+              <a href="{{ url_for('admin_login') }}" class="btn btn-primary btn-lg fw-semibold rounded-3 py-3 d-flex align-items-center justify-content-center shadow">
+                <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+                Admin Login
+              </a>
+
+              <!-- Student Login Button -->
+              <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg fw-semibold rounded-3 py-3 d-flex align-items-center justify-content-center">
+                <svg class="me-2" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+                Student Login
+              </a>
+            </div>
+
+            <hr class="border-secondary opacity-25 my-3">
+
+            
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

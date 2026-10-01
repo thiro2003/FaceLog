@@ -1,0 +1,12 @@
+
+  <div class="container-fluid text-white bg-dark d-flex align-items-center justify-content-between p-3 ">
+   
+   <a href="/facelog_home" class='text-white text-decoration-none'><h1>FaceLog</h1></a>
+   
+   {% if 'user' in session %}
+    <a href="/logout" class="btn btn-danger">
+    Logout
+   </a>
+   {% endif %}
+   
+  </div>
